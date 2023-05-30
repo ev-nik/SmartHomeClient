@@ -8,10 +8,10 @@ Widget::Widget(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    time = new QTimer;
+    timer = new QTimer(this);
+    timer ->start(10);
 
-    time ->start(1000);
-    connect(time, SIGNAL(timeout()), this, SLOT(currentDataTime()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateDateTime()));
 }
 //-----------------------------------------------------------------------------------
 
@@ -21,11 +21,11 @@ Widget::~Widget()
 }
 //-----------------------------------------------------------------------------------
 
-void Widget::currentDataTime()
+void Widget::updateDateTime()
 {
-    QString dTime = QDateTime::currentDateTime().toString("hh:mm:ss dd.MM.yyyy"); // Текеущее время
-                                                                                  // и дата в строку
-    ui->currentTimeLable->setText(dTime);
+    QString dTime = QDateTime::currentDateTime().toString("hh:mm:ss.zzz dd.MM.yyyy"); // Текеущее время
+                                                                                      // и дата в строку
+    ui->dateTimeLabel->setText(dTime);
 }
 //-----------------------------------------------------------------------------------
 

@@ -22,11 +22,10 @@ public:
 private:
     Ui::Widget *ui;
 
-QTimer* time;
+    QTimer* timer;
 
 private slots:
-
-void currentDataTime ();
+    void updateDateTime();
 };
 //-----------------------------------------------------------------------------------
 
