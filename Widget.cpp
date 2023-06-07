@@ -7,11 +7,6 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
-
-    timer = new QTimer(this);
-    timer ->start(10);
-
-    connect(timer, SIGNAL(timeout()), this, SLOT(updateDateTime()));
 }
 //-----------------------------------------------------------------------------------
 
@@ -21,11 +16,4 @@ Widget::~Widget()
 }
 //-----------------------------------------------------------------------------------
 
-void Widget::updateDateTime()
-{
-    QString dTime = QDateTime::currentDateTime().toString("hh:mm:ss.zzz dd.MM.yyyy"); // Текеущее время
-                                                                                      // и дата в строку
-    ui->dateTimeLabel->setText(dTime);
-}
-//-----------------------------------------------------------------------------------
 

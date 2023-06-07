@@ -4,9 +4,6 @@
 //----------------------------------
 
 #include <QWidget>
-#include <QTimer>
-#include <QDateTime>
-//----------------------------------
 
 namespace Ui { class Widget; }
 //----------------------------------
@@ -21,12 +18,10 @@ public:
 
 private:
     Ui::Widget *ui;
-
-    QTimer* timer;
-
-private slots:
-    void updateDateTime();
 };
 //-----------------------------------------------------------------------------------
+
+
+
 
 #endif // WIDGET_H
