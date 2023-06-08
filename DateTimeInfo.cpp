@@ -17,8 +17,11 @@ DateTimeInfo::DateTimeInfo(QWidget *parent) :
     connect(timer, SIGNAL(timeout()), this, SLOT(weekDay()));
     timer->start(1000);
 
-    dateTimeLabel = new QLabel(this);
+    dateTimeLabel  = new QLabel(this);
     dayOfWeekLabel = new QLabel(this);
+
+    dateTimeLabel ->setGeometry(10, 8, 120, 20);
+    dayOfWeekLabel->setGeometry(10, 30, 100, 20);
 }
 //---------------------------------------------------------------
 
@@ -30,7 +33,6 @@ DateTimeInfo::~DateTimeInfo()
 
 void DateTimeInfo::tick()
 {
-    dateTimeLabel->setGeometry(10, 8, 120, 20);
     QString dateTimeNow = QDateTime::currentDateTime().toString("dd.MM.yyyy  hh:mm:ss");
     dateTimeLabel->setText(dateTimeNow);
 }
@@ -38,7 +40,6 @@ void DateTimeInfo::tick()
 
 void DateTimeInfo::weekDay()
 {
-    dayOfWeekLabel->setGeometry(10, 30, 100, 20);
     QString dayNow = QDateTime::currentDateTime().toString("dddd");
     dayOfWeekLabel->setText(dayNow);
 }

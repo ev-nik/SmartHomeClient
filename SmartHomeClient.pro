@@ -20,4 +20,5 @@ HEADERS  += Widget.h \
     DateTimeInfo.h
 
 FORMS    += Widget.ui \
-    DateTimeInfo.ui
+    DateTimeInfo.ui \
+    TemperatureIn.ui
