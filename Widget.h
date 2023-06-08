@@ -4,6 +4,9 @@
 //----------------------------------
 
 #include <QWidget>
+#include "DateTimeInfo.h"
+#include "TemperatureIn.h"
+
 
 namespace Ui { class Widget; }
 //----------------------------------
@@ -18,6 +21,9 @@ public:
 
 private:
     Ui::Widget *ui;
+
+    DateTimeInfo *dateTimeInfo;
+    TemperatureIn * temperatureIn;
 };
 //-----------------------------------------------------------------------------------
 

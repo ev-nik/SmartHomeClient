@@ -13,8 +13,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        Widget.cpp
+        Widget.cpp \
+    DateTimeInfo.cpp
 
-HEADERS  += Widget.h
+HEADERS  += Widget.h \
+    DateTimeInfo.h
 
-FORMS    += Widget.ui
+FORMS    += Widget.ui \
+    DateTimeInfo.ui

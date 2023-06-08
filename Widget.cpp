@@ -7,6 +7,9 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
+
+    dateTimeInfo  = new DateTimeInfo(this);
+    temperatureIn = new TemperatureIn(this);
 }
 //-----------------------------------------------------------------------------------
 
