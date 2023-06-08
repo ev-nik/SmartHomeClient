@@ -14,10 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         Widget.cpp \
-    DateTimeInfo.cpp
+    DateTimeInfo.cpp \
+    TemperatureIn.cpp
 
 HEADERS  += Widget.h \
-    DateTimeInfo.h
+    DateTimeInfo.h \
+    TemperatureIn.h
 
 FORMS    += Widget.ui \
     DateTimeInfo.ui \
