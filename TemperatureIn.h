@@ -24,7 +24,7 @@ private:
     QTimer *timer;
 
 private slots:
-    void temper();
+    void updateTemper();
 };
 
 #endif // TEMPERATUREIN_H

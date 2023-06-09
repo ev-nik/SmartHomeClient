@@ -28,7 +28,7 @@ private:
 private slots:
 
     void tick();
-    void weekDay();
+    void updateWeekDay();
 
 };
 

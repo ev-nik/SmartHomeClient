@@ -13,9 +13,10 @@ TemperatureIn::TemperatureIn(QWidget *parent) :
 
     timer = new QTimer(this);
 
-    connect(timer, SIGNAL(timeout()), this, SLOT(temper()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateTemper()));
     timer->start(1000);
     tempeatureLabel = new QLabel(this);
+    tempeatureLabel->setGeometry(10, 50, 80, 20);
 }
 //---------------------------------------------------------------
 
@@ -25,9 +26,8 @@ TemperatureIn::~TemperatureIn()
 }
 //---------------------------------------------------------------
 
-void TemperatureIn::temper()
+void TemperatureIn::updateTemper()
 {
-    tempeatureLabel->setGeometry(10, 50, 80, 20);
     QString tempIn = QDateTime::currentDateTime().toString("ss C");
     tempeatureLabel->setText(tempIn);
 }

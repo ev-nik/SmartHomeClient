@@ -23,7 +23,7 @@ private:
     Ui::Widget *ui;
 
     DateTimeInfo *dateTimeInfo;
-    TemperatureIn * temperatureIn;
+    TemperatureIn *temperatureIn;
 };
 //-----------------------------------------------------------------------------------
 

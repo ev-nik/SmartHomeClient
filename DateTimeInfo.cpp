@@ -14,7 +14,7 @@ DateTimeInfo::DateTimeInfo(QWidget *parent) :
     timer = new QTimer(this);
 
     connect(timer, SIGNAL(timeout()), this, SLOT(tick()));
-    connect(timer, SIGNAL(timeout()), this, SLOT(weekDay()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateWeekDay()));
     timer->start(1000);
 
     dateTimeLabel  = new QLabel(this);
@@ -38,7 +38,7 @@ void DateTimeInfo::tick()
 }
 //---------------------------------------------------------------
 
-void DateTimeInfo::weekDay()
+void DateTimeInfo::updateWeekDay()
 {
     QString dayNow = QDateTime::currentDateTime().toString("dddd");
     dayOfWeekLabel->setText(dayNow);
