@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QLabel>
 #include <QTimer>
+#include <QPalette>
 
 namespace Ui {
     class TemperatureIn;
