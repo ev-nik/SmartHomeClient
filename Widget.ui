@@ -13,6 +13,19 @@
   <property name="windowTitle">
    <string>Widget</string>
   </property>
+  <widget class="QPushButton" name="createTemperatureInfoButton">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>88</y>
+     <width>169</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Добавить датчик температуры</string>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

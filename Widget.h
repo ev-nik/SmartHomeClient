@@ -23,6 +23,9 @@ private:
 
     DateTimeInfo * m_DateTimeInfo;
     TemperatureIn* m_TemperatureIn;
+
+private slots:
+    void createTemperatureInfo();
 };
 //-----------------------------------------------------------------------------------
 #endif // WIDGET_H

@@ -11,7 +11,6 @@ Widget::Widget(QWidget *parent) :
     ui->setupUi(this);
 
     m_DateTimeInfo  = new DateTimeInfo(this);
-    m_TemperatureIn = new TemperatureIn(this);
 
     QVBoxLayout* vLayout = new QVBoxLayout( this ); // Объект с помощью которого можно компановать
                                                     // объекты по вертикали
@@ -19,8 +18,10 @@ Widget::Widget(QWidget *parent) :
     vLayout->setSpacing( 0 );            // Расстояние между виджетами внутри слоя
 
     vLayout->addWidget(m_DateTimeInfo);  // Добавить виджет на слой
-    vLayout->addWidget(m_TemperatureIn); //-----------------------
+
     vLayout->addStretch();               // Пружинка
+
+    connect(ui->createTemperatureInfoButton, SIGNAL(clicked(bool)), this, SLOT(createTemperatureInfo()));
 }
 //-----------------------------------------------------------------------------------
 
@@ -29,3 +30,11 @@ Widget::~Widget()
     delete ui;
 }
 //-----------------------------------------------------------------------------------
+
+void Widget::createTemperatureInfo()
+{
+    m_TemperatureIn = new TemperatureIn(this);
+
+    QLayout* l = layout();
+    l->addWidget(m_TemperatureIn);
+}
