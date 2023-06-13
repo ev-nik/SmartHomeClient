@@ -3,6 +3,7 @@
 //---------------------------------------------------------------
 
 #include <QDateTime>
+#include <QVBoxLayout>
 //---------------------------------------------------------------
 
 DateTimeInfo::DateTimeInfo(QWidget *parent) :
@@ -11,17 +12,11 @@ DateTimeInfo::DateTimeInfo(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    timer = new QTimer(this);
+    m_Timer = new QTimer(this);
 
-    connect(timer, SIGNAL(timeout()), this, SLOT(tick()));
-    connect(timer, SIGNAL(timeout()), this, SLOT(updateWeekDay()));
-    timer->start(1000);
-
-    dateTimeLabel  = new QLabel(this);
-    dayOfWeekLabel = new QLabel(this);
-
-    dateTimeLabel ->setGeometry(10, 8, 120, 20);
-    dayOfWeekLabel->setGeometry(10, 30, 100, 20);
+    connect(m_Timer, SIGNAL(timeout()), this, SLOT(tick()));
+    connect(m_Timer, SIGNAL(timeout()), this, SLOT(updateWeekDay()));
+    m_Timer->start(1000);
 }
 //---------------------------------------------------------------
 
@@ -34,13 +29,16 @@ DateTimeInfo::~DateTimeInfo()
 void DateTimeInfo::tick()
 {
     QString dateTimeNow = QDateTime::currentDateTime().toString("dd.MM.yyyy  hh:mm:ss");
-    dateTimeLabel->setText(dateTimeNow);
+    ui->dateTimeLabel->setText(dateTimeNow);
 }
 //---------------------------------------------------------------
 
 void DateTimeInfo::updateWeekDay()
 {
     QString dayNow = QDateTime::currentDateTime().toString("dddd");
-    dayOfWeekLabel->setText(dayNow);
+    dayNow[0] = dayNow[0].toUpper(); // Способ поднятия первой буквы строки
+                                     // в верхний регистр (заглавная буква)
+
+    ui->dayOfWeekLabel->setText(dayNow);
 }
 //---------------------------------------------------------------

@@ -7,7 +7,6 @@
 #include "DateTimeInfo.h"
 #include "TemperatureIn.h"
 
-
 namespace Ui { class Widget; }
 //----------------------------------
 
@@ -16,18 +15,14 @@ class Widget : public QWidget
     Q_OBJECT
 
 public:
-    explicit Widget(QWidget *parent = 0);
+    explicit Widget(QWidget* parent = 0);
     ~Widget();
 
 private:
-    Ui::Widget *ui;
+    Ui::Widget* ui;
 
-    DateTimeInfo *dateTimeInfo;
-    TemperatureIn *temperatureIn;
+    DateTimeInfo * m_DateTimeInfo;
+    TemperatureIn* m_TemperatureIn;
 };
 //-----------------------------------------------------------------------------------
-
-
-
-
 #endif // WIDGET_H

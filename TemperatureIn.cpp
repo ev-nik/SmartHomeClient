@@ -1,11 +1,12 @@
 #include "TemperatureIn.h"
 #include "ui_TemperatureIn.h"
 //---------------------------------------------------------------
+
 #include <QPalette>
 #include <QDateTime>
 #include <iostream>
-
 #include <QDebug>
+#include <QVBoxLayout>
 
 using namespace std;
 //---------------------------------------------------------------
@@ -16,12 +17,10 @@ TemperatureIn::TemperatureIn(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    timer = new QTimer(this);
+    m_Timer = new QTimer(this);
 
-    connect(timer, SIGNAL(timeout()), this, SLOT(updateTemper()));
-    timer->start(1000);
-    tempeatureLabel = new QLabel(this);
-    tempeatureLabel->setGeometry(10, 50, 120, 20);
+    connect(m_Timer, SIGNAL(timeout()), this, SLOT(updateTemper()));
+    m_Timer->start(1000);
 }
 //---------------------------------------------------------------
 
@@ -33,7 +32,7 @@ TemperatureIn::~TemperatureIn()
 
 void TemperatureIn::updateTemper()
 {
-    QPalette pal = tempeatureLabel->palette();
+    QPalette pal = ui->temperatureLabel->palette();
 
     QTime time = QTime::currentTime();
     QString tempStr = time.toString("ss C");
@@ -53,8 +52,8 @@ void TemperatureIn::updateTemper()
         pal.setColor(QPalette::WindowText, Qt::red);
     }
 
-    tempeatureLabel->setPalette(pal);
+    ui->temperatureLabel->setPalette(pal);
 
-    tempeatureLabel->setText(QString("%1 %2").arg("Температура: ").arg(tempStr));
+    ui->temperatureLabel->setText(QString("%1 %2").arg("Температура: ").arg(tempStr));
 }
 //---------------------------------------------------------------

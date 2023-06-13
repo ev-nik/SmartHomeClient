@@ -14,22 +14,17 @@ class DateTimeInfo : public QWidget
     Q_OBJECT
 
 public:
-    explicit DateTimeInfo(QWidget *parent = 0);
+    explicit DateTimeInfo(QWidget* parent = 0);
     ~DateTimeInfo();
 
 private:
-    Ui::DateTimeInfo *ui;
+    Ui::DateTimeInfo* ui;
 
-    QLabel *dateTimeLabel;
-    QLabel *dayOfWeekLabel;
-
-    QTimer *timer;
+    QTimer* m_Timer;
 
 private slots:
-
     void tick();
     void updateWeekDay();
-
 };
 
 #endif // DATETIMEINFO_H

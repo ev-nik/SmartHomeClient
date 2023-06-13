@@ -15,16 +15,16 @@ class TemperatureIn : public QWidget
     Q_OBJECT
 
 public:
-    explicit TemperatureIn(QWidget *parent = 0);
+    explicit TemperatureIn(QWidget* parent = 0);
     ~TemperatureIn();
 
 private:
-    Ui::TemperatureIn *ui;
+    Ui::TemperatureIn* ui;
 
-    QLabel *tempeatureLabel;
-    QTimer *timer;
+    QTimer* m_Timer;
 
 private slots:
+
     void updateTemper();
 };
 
