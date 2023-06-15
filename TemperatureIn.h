@@ -26,6 +26,11 @@ private:
 private slots:
 
     void updateTemper();
+    void deleteClick();
+
+signals:
+    void deleteMe();
+
 };
 
 #endif // TEMPERATUREIN_H

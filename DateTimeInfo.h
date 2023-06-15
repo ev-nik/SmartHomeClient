@@ -25,6 +25,10 @@ private:
 private slots:
     void tick();
     void updateWeekDay();
+    void deleteClick();
+
+signals:
+    void deleteMe();
 };
 
 #endif // DATETIMEINFO_H

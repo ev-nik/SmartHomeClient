@@ -15,17 +15,33 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="dateTimeLabel">
-     <property name="text">
-      <string>TextLabel</string>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Дата время день недели</string>
      </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QLabel" name="dayOfWeekLabel">
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="dateTimeLabel">
+        <property name="text">
+         <string>Дата время</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="dayOfWeekLabel">
+        <property name="text">
+         <string>День недели</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="deleteButton">
+        <property name="text">
+         <string>Удалить</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>

@@ -20,6 +20,8 @@ TemperatureIn::TemperatureIn(QWidget *parent) :
     m_Timer = new QTimer(this);
 
     connect(m_Timer, SIGNAL(timeout()), this, SLOT(updateTemper()));
+    connect(ui->deleteButton, SIGNAL(clicked(bool)), this, SLOT(deleteClick()));
+
     m_Timer->start(1000);
 }
 //---------------------------------------------------------------
@@ -56,4 +58,12 @@ void TemperatureIn::updateTemper()
 
     ui->temperatureLabel->setText(QString("%1 %2").arg("Температура: ").arg(tempStr));
 }
+//---------------------------------------------------------------
+
+void TemperatureIn::deleteClick()
+{
+    emit deleteMe();  // Испускание собственного сигнала( к этому сигналу
+                      // можно подключиться из вне)
+    }
+
 //---------------------------------------------------------------

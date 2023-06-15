@@ -16,6 +16,8 @@ DateTimeInfo::DateTimeInfo(QWidget *parent) :
 
     connect(m_Timer, SIGNAL(timeout()), this, SLOT(tick()));
     connect(m_Timer, SIGNAL(timeout()), this, SLOT(updateWeekDay()));
+    connect(ui->deleteButton, SIGNAL(clicked(bool)), this, SLOT(deleteClick()));
+
     m_Timer->start(1000);
 }
 //---------------------------------------------------------------
@@ -42,3 +44,8 @@ void DateTimeInfo::updateWeekDay()
     ui->dayOfWeekLabel->setText(dayNow);
 }
 //---------------------------------------------------------------
+
+void DateTimeInfo::deleteClick()
+{
+    emit deleteMe();
+}

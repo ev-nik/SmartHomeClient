@@ -21,11 +21,13 @@ public:
 private:
     Ui::Widget* ui;
 
-    DateTimeInfo * m_DateTimeInfo;
-    TemperatureIn* m_TemperatureIn;
-
 private slots:
     void createTemperatureInfo();
+
+    void createDateTimeInfo();
+
+
+    void deleteDevice();
 };
 //-----------------------------------------------------------------------------------
 #endif // WIDGET_H
