@@ -28,9 +28,10 @@ private slots:
     void updateTemper();
     void deleteClick();
 
+
 signals:
     void deleteMe();
-
+    void changed(QString val);
 };
 
 #endif // TEMPERATUREIN_H

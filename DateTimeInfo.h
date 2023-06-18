@@ -29,6 +29,8 @@ private slots:
 
 signals:
     void deleteMe();
+    void changedDT(QString val);
+    void changedW(QString val);
 };
 
 #endif // DATETIMEINFO_H

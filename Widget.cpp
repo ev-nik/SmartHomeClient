@@ -32,7 +32,8 @@ Widget::~Widget()
 void Widget::createTemperatureInfo()
 {
     TemperatureIn* temperatureIn = new TemperatureIn(this);
-    connect(temperatureIn, SIGNAL(deleteMe()), this, SLOT(deleteDevice()));
+    connect(temperatureIn, SIGNAL(deleteMe()      ), this, SLOT(deleteDevice()       ));
+    connect(temperatureIn, SIGNAL(changed(QString)), this, SLOT(valueChanged(QString)));
 
     QLayout* l = layout();
     l->addWidget(temperatureIn);
@@ -51,8 +52,30 @@ void Widget::createDateTimeInfo()
 {
     DateTimeInfo* dateTimeInfo = new DateTimeInfo(this);
     connect(dateTimeInfo, SIGNAL(deleteMe()), this, SLOT(deleteDevice()));
+    connect(dateTimeInfo, SIGNAL(changedDT(QString)), this, SLOT(valueChangedDT(QString)));
+    connect(dateTimeInfo, SIGNAL(changedW(QString)), this, SLOT(valueChangedW(QString)));
 
     QLayout* l = layout();
     l->addWidget(dateTimeInfo);
 }
 //-----------------------------------------------------------------------------------
+
+void Widget::valueChanged(QString val)
+{
+    qDebug() << "val - " << val;
+}
+//-----------------------------------------------------------------------------------
+
+void Widget::valueChangedDT(QString val)
+{
+    qDebug() << "date time - " << val;
+}
+//-----------------------------------------------------------------------------------
+
+void Widget::valueChangedW(QString val)
+{
+    qDebug() << "day - " << val;
+}
+//-----------------------------------------------------------------------------------
+
+

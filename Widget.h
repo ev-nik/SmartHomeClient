@@ -26,8 +26,12 @@ private slots:
 
     void createDateTimeInfo();
 
-
     void deleteDevice();
+
+    void valueChanged(QString val);
+    void valueChangedDT(QString val);
+    void valueChangedW(QString val);
+
 };
 //-----------------------------------------------------------------------------------
 #endif // WIDGET_H

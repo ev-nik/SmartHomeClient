@@ -32,6 +32,8 @@ void DateTimeInfo::tick()
 {
     QString dateTimeNow = QDateTime::currentDateTime().toString("dd.MM.yyyy  hh:mm:ss");
     ui->dateTimeLabel->setText(dateTimeNow);
+
+    emit changedDT(dateTimeNow);
 }
 //---------------------------------------------------------------
 
@@ -42,6 +44,8 @@ void DateTimeInfo::updateWeekDay()
                                      // в верхний регистр (заглавная буква)
 
     ui->dayOfWeekLabel->setText(dayNow);
+
+    emit changedW(dayNow);
 }
 //---------------------------------------------------------------
 

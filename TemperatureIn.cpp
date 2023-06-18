@@ -57,6 +57,8 @@ void TemperatureIn::updateTemper()
     ui->temperatureLabel->setPalette(pal);
 
     ui->temperatureLabel->setText(QString("%1 %2").arg("Температура: ").arg(tempStr));
+
+    emit changed(tempStr);
 }
 //---------------------------------------------------------------
 
@@ -64,6 +66,5 @@ void TemperatureIn::deleteClick()
 {
     emit deleteMe();  // Испускание собственного сигнала( к этому сигналу
                       // можно подключиться из вне)
-    }
-
+}
 //---------------------------------------------------------------
