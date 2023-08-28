@@ -88,7 +88,7 @@ void DateTimeInfo::writeInFile(QString qs)
 //}
 //----------------------------------------------------------------------------
 
-void DateTimeInfo::setFileAdress(QString addres)
+void DateTimeInfo::setFileAdress( QString addres )
 {
     fileAdress = addres;
 }
