@@ -10,13 +10,15 @@
 #include <QString>
 #include <QTextStream>
 
+#include "Device.h"
+
 //----------------------------------------------------------------------------
 
 namespace Ui {
 class DateTimeInfo;
 }
 
-class DateTimeInfo : public QWidget
+class DateTimeInfo : public Device
 {
     Q_OBJECT
 
@@ -24,20 +26,10 @@ public:
     explicit DateTimeInfo(QWidget *parent = nullptr);
     ~DateTimeInfo();
 
-//    void setSave(bool x);
-
-    void setFileAdress(QString addres);
-
 private:
     Ui::DateTimeInfo *ui;
 
     QTimer* m_Timer;
-
-//    bool isSave;
-
-    void writeInFile(QString qs);
-
-    QString fileAdress;
 
 private slots:
     void tick();

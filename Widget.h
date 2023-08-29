@@ -6,11 +6,13 @@
 #include <TemperatureInfo.h>
 #include <LightInfo.h>
 
+#include "Device.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
 
-class Widget : public QWidget
+class Widget : public Device
 {
     Q_OBJECT
 
@@ -18,14 +20,12 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
-//    void setSave(bool x);
     void setFileAdress(QString addres);
 
 private:
     Ui::Widget *ui;
 
-//    bool isSave;
-    QString fileAdress;
+    QString path;
 
 private slots:
     void createDateTimeInfo();

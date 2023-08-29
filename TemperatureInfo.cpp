@@ -6,12 +6,8 @@
 #include <QTextStream>
 //----------------------------------------------------------------------------
 
-//#define FILE_PATH "E:/prog.txt"
-//----------------------------------------------------------------------------
-
-
 TemperatureInfo::TemperatureInfo(QWidget *parent) :
-    QWidget(parent),
+    Device(parent),
     ui(new Ui::TemperatureInfo)
 {
     ui->setupUi(this);
@@ -26,7 +22,6 @@ TemperatureInfo::TemperatureInfo(QWidget *parent) :
     m_Timer->start(1000);
 }
 //----------------------------------------------------------------------------
-
 
 TemperatureInfo::~TemperatureInfo()
 {
@@ -56,7 +51,9 @@ void TemperatureInfo::updateTemperature()
     ui->temperatureLabel->setPalette(pal);
     ui->temperatureLabel->setText(QString("Температура: %1").arg(t));
 
-        writeInFile(t);
+    QString qstrT = QString::number(t);
+
+    writeInFile(qstrT);
 }
 //----------------------------------------------------------------------------
 
@@ -69,31 +66,5 @@ int TemperatureInfo::temperature()
 void TemperatureInfo::deleteClick()
 {
     emit deleteMe();
-}
-//----------------------------------------------------------------------------
-
-void TemperatureInfo::writeInFile(int temp)
-{
-    QFile file(fileAdress);
-
-    if(file.open(QIODevice::Append))
-    {
-        QTextStream prog(&file);
-        prog << " t°C" << temp << " ";
-
-        file.close();
-    }
-}
-//----------------------------------------------------------------------------
-
-//void TemperatureInfo::setSave(bool x)
-//{
-//    isSave = x;
-//}
-//----------------------------------------------------------------------------
-
-void TemperatureInfo::setFileAdress(QString addres)
-{
-    fileAdress = addres;
 }
 //----------------------------------------------------------------------------

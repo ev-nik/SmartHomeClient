@@ -5,11 +5,13 @@
 #include <QTimer>
 #include <QTime>
 
+#include "Device.h"
+
 namespace Ui {
 class TemperatureInfo;
 }
 
-class TemperatureInfo : public QWidget
+class TemperatureInfo : public Device
 {
     Q_OBJECT
 
@@ -17,24 +19,14 @@ public:
     explicit TemperatureInfo(QWidget *parent = nullptr);
     ~TemperatureInfo();
 
-//    void setSave(bool x);
-
-    void setFileAdress(QString addres);
-
 private:
     Ui::TemperatureInfo *ui;
 
     QTimer* m_Timer;
 
-    void writeInFile(int temp);
-
-//    bool isSave;
-
-    QString fileAdress;
-
 private slots:
     void updateTemperature();
-    int temperature();
+    int  temperature();
     void deleteClick();
 
 signals:

@@ -9,12 +9,10 @@
 //----------------------------------------------------------------------------
 
 LightInfo::LightInfo(QWidget *parent) :
-    QWidget(parent),
+    Device(parent),
     ui(new Ui::LightInfo)
 {
     ui->setupUi(this);
-
-//    isSave = false;
 
     m_Timer = new QTimer(this);
 
@@ -42,18 +40,18 @@ void LightInfo::updateLightInfo()
     {
         pal.setColor(QPalette::WindowText, Qt::black);
         ui->lightInfoLabel->setPalette(pal);
-        ui->lightInfoLabel->setText("Switch OFF");
+        ui->lightInfoLabel->setText("Switch OFF ");
 
-        writeFiles("Switch OFF");
+        writeInFile("Switch OFF");
     }
 
     else
     {
         pal.setColor(QPalette::WindowText, Qt::red);
         ui->lightInfoLabel->setPalette(pal);
-        ui->lightInfoLabel->setText("Switch ON");
+        ui->lightInfoLabel->setText("Switch ON ");
 
-        writeInFiles("Switch ON");
+        writeInFile("Switch ON");
     }
 }
 //----------------------------------------------------------------------------
@@ -61,31 +59,5 @@ void LightInfo::updateLightInfo()
 void LightInfo::deleteClick()
 {
     emit deleteMe();
-}
-//----------------------------------------------------------------------------
-
-void LightInfo::writeInFile(QString qs)
-{
-    QFile file(fileAdress);
-
-    if(file.open(QIODevice::Append))
-    {
-        QTextStream prog(&file);
-        prog << qs << "\n";
-
-        file.close();
-    }
-}
-//----------------------------------------------------------------------------
-
-//void LightInfo::setSave(bool x)
-//{
-//    isSave = x;
-//}
-//----------------------------------------------------------------------------
-
-void LightInfo::setFileAdress(QString addres)
-{
-    fileAdress = addres;
 }
 //----------------------------------------------------------------------------

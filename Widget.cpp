@@ -3,12 +3,10 @@
 //----------------------------------------------------------------------------
 
 Widget::Widget(QWidget *parent)
-    : QWidget(parent)
+    : Device(parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
-
-//    isSave = false;
 
     QIcon iconTemp = QIcon(":/therm.png");
     ui->createTemperatureButton->setIcon(iconTemp);
@@ -39,8 +37,7 @@ void Widget::createDateTimeInfo()
 {
     DateTimeInfo* dateTimeInfo = new DateTimeInfo(this);
 
-//    dateTimeInfo->setSave(isSave);
-    dateTimeInfo->setFileAdress(fileAdress);
+    dateTimeInfo->setFileAdress(path);
 
     connect(dateTimeInfo, SIGNAL(deleteMe()), this, SLOT(deleteDevice()));
 
@@ -53,8 +50,7 @@ void Widget::createTemperatureInfo()
 {
     TemperatureInfo* temperatureInfo = new TemperatureInfo(this);
 
-//    temperatureInfo->setSave(isSave);
-    temperatureInfo->setFileAdress(fileAdress);
+    temperatureInfo->setFileAdress(path);
 
     connect(temperatureInfo, SIGNAL(deleteMe()), this, SLOT(deleteDevice()));
 
@@ -67,8 +63,7 @@ void Widget::createLightInfo()
 {
     LightInfo* lightInfo = new LightInfo(this);
 
-//    lightInfo->setSave(isSave);
-    lightInfo->setFileAdress(fileAdress);
+    lightInfo->setFileAdress(path);
 
     connect(lightInfo, SIGNAL(deleteMe()), this, SLOT(deleteDevice()));
 
@@ -85,14 +80,8 @@ void Widget::deleteDevice()
 }
 //----------------------------------------------------------------------------
 
-//void Widget::setSave(bool x)
-//{
-//    isSave = x;
-//}
-//----------------------------------------------------------------------------
-
 void Widget::setFileAdress(QString addres)
 {
-
-    fileAdress = addres;
+    path = addres;
 }
+

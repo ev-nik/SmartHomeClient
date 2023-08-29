@@ -9,19 +9,6 @@
 // --path=E:/prog.txt
 //----------------------------------------------------------------------------
 
-class BaseClass
-{
-    BaseClass()
-    {
-    }
-
-public:
-    void writeInFiles(QString qs);
-
-
-};
-//----------------------------------------------------------------------------
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -52,23 +39,10 @@ int main(int argc, char *argv[])
         w.setFileAdress(path);
     }
 
-//        w.setSave(true);
+//    w.setSave(true);
 
     return a.exec();
 }
 //----------------------------------------------------------------------------
-
-void writeInFiles(QString qs)
-{
-    QFile file(fileAdress);
-
-    if(file.open(QIODevice::Append))
-    {
-        QTextStream prog(&file); // С помощью такой конструкции
-        prog << qs;  // передаем данные в файл
-
-        file.close();
-    }
-}
 
 

@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     DateTimeInfo.cpp \
+    Device.cpp \
     LightInfo.cpp \
     TemperatureInfo.cpp \
     main.cpp \
@@ -17,12 +18,14 @@ SOURCES += \
 
 HEADERS += \
     DateTimeInfo.h \
+    Device.h \
     LightInfo.h \
     TemperatureInfo.h \
     Widget.h
 
 FORMS += \
     DateTimeInfo.ui \
+    Device.ui \
     LightInfo.ui \
     TemperatureInfo.ui \
     Widget.ui

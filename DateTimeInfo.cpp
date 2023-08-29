@@ -13,12 +13,10 @@
 //----------------------------------------------------------------------------
 
 DateTimeInfo::DateTimeInfo(QWidget *parent) :
-    QWidget(parent),
+    Device(parent),
     ui(new Ui::DateTimeInfo)
 {
     ui->setupUi(this);
-
-//    isSave = false;
 
     m_Timer = new QTimer(this);
 
@@ -39,20 +37,13 @@ DateTimeInfo::~DateTimeInfo()
 void DateTimeInfo::tick()
 {
     QString dateNow = QDateTime::currentDateTime().toString("dd.MM.yyyy");
-    QString timeNow = QDateTime::currentDateTime().toString("hh:mm:ss ");
+    QString timeNow = QDateTime::currentDateTime().toString(" hh:mm:ss ");
 
     ui->dateLabel->setText(QString("Дата: %1").arg(dateNow));
     ui->timeLabel->setText(QString("Время: %1").arg(timeNow));
 
     writeInFile(dateNow);
     writeInFile(timeNow);
-
-}
-//----------------------------------------------------------------------------
-
-void DateTimeInfo::deleteClick()
-{
-    emit deleteMe();
 }
 //----------------------------------------------------------------------------
 
@@ -61,35 +52,14 @@ void DateTimeInfo::updateWeekDay()
     QString dayNow = QDate::currentDate().toString("dddd");
     dayNow[0] = dayNow[0].toUpper();
 
-    writeFiles(dayNow);
-    writeFiles("\n");
+    writeInFile(dayNow);
+    writeInFile("\n");
 
     ui->dayOfWeekLabel->setText(dayNow);
 }
 //----------------------------------------------------------------------------
 
-void DateTimeInfo::writeInFile(QString qs)
+void DateTimeInfo::deleteClick()
 {
-    QFile file(fileAdress);
-
-    if(file.open(QIODevice::Append))
-    {
-        QTextStream prog(&file); // С помощью такой конструкции
-        prog << qs;  // передаем данные в файл
-
-        file.close();
-    }
+    emit deleteMe();
 }
-//----------------------------------------------------------------------------
-
-//void DateTimeInfo::setSave(bool x)
-//{
-//    isSave = x;
-//}
-//----------------------------------------------------------------------------
-
-void DateTimeInfo::setFileAdress( QString addres )
-{
-    fileAdress = addres;
-}
-//----------------------------------------------------------------------------
