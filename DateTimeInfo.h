@@ -26,6 +26,8 @@ public:
     explicit DateTimeInfo(QWidget *parent = nullptr);
     ~DateTimeInfo();
 
+    QString nameSensor();
+
 private:
     Ui::DateTimeInfo *ui;
 

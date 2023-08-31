@@ -18,12 +18,14 @@ Device::~Device()
 
 void Device::writeInFile(QString qs)
 {
-    if(path.isEmpty() == true)
+    if(path.isEmpty())
     {
         return;
     }
 
-    QFile file(path);
+    QString filePath = path + "/" + nameSensor() + ".txt";
+
+    QFile file(filePath);
 
     if(file.open(QIODevice::Append) == false)
     {
@@ -31,7 +33,7 @@ void Device::writeInFile(QString qs)
     }
 
     QTextStream prog(&file); // С помощью такой конструкции
-    prog << qs;  // передаем данные в файл
+    prog << qs << "/n";  // передаем данные в файл
 
     file.close();
 }
@@ -42,3 +44,4 @@ void Device::setFileAdress( QString addres )
     path = addres;
 }
 //----------------------------------------------------------------------------
+

@@ -68,3 +68,8 @@ void TemperatureInfo::deleteClick()
     emit deleteMe();
 }
 //----------------------------------------------------------------------------
+
+QString TemperatureInfo::nameSensor()
+{
+    return "temperatureInfo";
+}

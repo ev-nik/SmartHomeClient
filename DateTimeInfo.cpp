@@ -42,8 +42,7 @@ void DateTimeInfo::tick()
     ui->dateLabel->setText(QString("Дата: %1").arg(dateNow));
     ui->timeLabel->setText(QString("Время: %1").arg(timeNow));
 
-    writeInFile(dateNow);
-    writeInFile(timeNow);
+    writeInFile(dateNow + " " + timeNow);
 }
 //----------------------------------------------------------------------------
 
@@ -53,7 +52,6 @@ void DateTimeInfo::updateWeekDay()
     dayNow[0] = dayNow[0].toUpper();
 
     writeInFile(dayNow);
-    writeInFile("\n");
 
     ui->dayOfWeekLabel->setText(dayNow);
 }
@@ -62,4 +60,10 @@ void DateTimeInfo::updateWeekDay()
 void DateTimeInfo::deleteClick()
 {
     emit deleteMe();
+}
+//----------------------------------------------------------------------------
+
+QString DateTimeInfo::nameSensor()
+{
+    return "dateTimeInfo";
 }

@@ -12,7 +12,7 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
 
-class Widget : public Device
+class Widget : public QWidget
 {
     Q_OBJECT
 

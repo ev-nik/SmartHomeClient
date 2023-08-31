@@ -5,6 +5,8 @@
 #include <QDebug>
 //----------------------------------------------------------------------------
 
+//     -p=E:/File
+// --path=E:/File
 //     -p=E:/prog.txt
 // --path=E:/prog.txt
 //----------------------------------------------------------------------------
@@ -38,8 +40,6 @@ int main(int argc, char *argv[])
     {
         w.setFileAdress(path);
     }
-
-//    w.setSave(true);
 
     return a.exec();
 }

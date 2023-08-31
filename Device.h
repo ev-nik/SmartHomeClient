@@ -23,6 +23,7 @@ public:
 public:
     void writeInFile(QString qs);
     void setFileAdress(QString addres);
+    virtual QString nameSensor() = 0;
 
 private:
     QString path;

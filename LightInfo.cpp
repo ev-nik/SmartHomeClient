@@ -61,3 +61,8 @@ void LightInfo::deleteClick()
     emit deleteMe();
 }
 //----------------------------------------------------------------------------
+
+QString LightInfo::nameSensor()
+{
+    return "lightInfo";
+}

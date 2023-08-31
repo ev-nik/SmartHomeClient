@@ -20,6 +20,8 @@ public:
     explicit LightInfo(QWidget *parent = nullptr);
     ~LightInfo();
 
+    QString nameSensor();
+
 private:
     Ui::LightInfo *ui;
 

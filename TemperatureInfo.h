@@ -19,6 +19,8 @@ public:
     explicit TemperatureInfo(QWidget *parent = nullptr);
     ~TemperatureInfo();
 
+    QString nameSensor();
+
 private:
     Ui::TemperatureInfo *ui;
 

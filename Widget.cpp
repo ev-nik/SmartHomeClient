@@ -3,7 +3,7 @@
 //----------------------------------------------------------------------------
 
 Widget::Widget(QWidget *parent)
-    : Device(parent)
+    : QWidget(parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
@@ -43,6 +43,8 @@ void Widget::createDateTimeInfo()
 
     QLayout* l = layout();
     l->addWidget(dateTimeInfo);
+
+
 }
 //----------------------------------------------------------------------------
 
