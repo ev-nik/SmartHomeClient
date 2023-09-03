@@ -5,9 +5,6 @@
 #include <QTextStream>
 //----------------------------------------------------------------------------
 
-//#define FILE_PATH "E:/prog.txt"
-//----------------------------------------------------------------------------
-
 LightInfo::LightInfo(QWidget *parent) :
     Device(parent),
     ui(new Ui::LightInfo)
@@ -16,7 +13,7 @@ LightInfo::LightInfo(QWidget *parent) :
 
     m_Timer = new QTimer(this);
 
-    connect(m_Timer, SIGNAL(timeout()), this, SLOT(updateLightInfo()));
+    connect(m_Timer,          SIGNAL(timeout()),     this, SLOT(updateLightInfo()));
     connect(ui->deleteButton, SIGNAL(clicked(bool)), this, SLOT(deleteClick()));
 
     m_Timer->start(1000);
@@ -42,16 +39,15 @@ void LightInfo::updateLightInfo()
         ui->lightInfoLabel->setPalette(pal);
         ui->lightInfoLabel->setText("Switch OFF ");
 
-        writeInFile("Switch OFF");
+        writeInFile("Switch OFF", CSV);
     }
-
     else
     {
         pal.setColor(QPalette::WindowText, Qt::red);
         ui->lightInfoLabel->setPalette(pal);
         ui->lightInfoLabel->setText("Switch ON ");
 
-        writeInFile("Switch ON");
+        writeInFile("Switch ON", CSV);
     }
 }
 //----------------------------------------------------------------------------

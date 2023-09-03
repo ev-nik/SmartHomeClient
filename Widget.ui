@@ -29,6 +29,13 @@
     </widget>
    </item>
    <item>
+    <widget class="QPushButton" name="createLeakInfoButton">
+     <property name="text">
+      <string>Добавить датчик протечки</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QPushButton" name="createDateTimeInfoButton">
      <property name="text">
       <string>Добавить Дата время</string>

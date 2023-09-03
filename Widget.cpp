@@ -24,6 +24,7 @@ Widget::Widget(QWidget *parent)
     connect(ui->createDateTimeInfoButton, SIGNAL(clicked(bool)), this, SLOT(createDateTimeInfo()));
     connect(ui->createTemperatureButton,  SIGNAL(clicked(bool)), this, SLOT(createTemperatureInfo()));
     connect(ui->createLightInfoButton,    SIGNAL(clicked(bool)), this, SLOT(createLightInfo()));
+    connect(ui->createLeakInfoButton,     SIGNAL(clicked(bool)), this, SLOT(createLeakInfo()));
 }
 //----------------------------------------------------------------------------
 
@@ -43,8 +44,6 @@ void Widget::createDateTimeInfo()
 
     QLayout* l = layout();
     l->addWidget(dateTimeInfo);
-
-
 }
 //----------------------------------------------------------------------------
 
@@ -72,6 +71,20 @@ void Widget::createLightInfo()
     QLayout* l = layout();
     l->addWidget(lightInfo);
 }
+//----------------------------------------------------------------------------
+
+void Widget::createLeakInfo()
+{
+    LeakInfo* leakInfo = new LeakInfo(this);
+
+    leakInfo->setFileAdress(path);
+
+    connect(leakInfo, SIGNAL(deleteMe()), this, SLOT(deleteDevice()));
+
+    QLayout* l = layout();
+    l->addWidget(leakInfo);
+}
+
 //----------------------------------------------------------------------------
 
 void Widget::deleteDevice()

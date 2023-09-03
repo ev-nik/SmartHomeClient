@@ -5,8 +5,9 @@
 #include <DateTimeInfo.h>
 #include <TemperatureInfo.h>
 #include <LightInfo.h>
-
 #include "Device.h"
+#include "LeakInfo.h"
+//----------------------------------------------------------------------------
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -31,6 +32,8 @@ private slots:
     void createDateTimeInfo();
     void createTemperatureInfo();
     void createLightInfo();
+    void createLeakInfo();
+
     void deleteDevice();
 };
 #endif // WIDGET_H

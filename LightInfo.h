@@ -1,5 +1,6 @@
 #ifndef LIGHTINFO_H
 #define LIGHTINFO_H
+//----------------------------------------------------------------------------
 
 #include <QWidget>
 #include <QTimer>
@@ -7,6 +8,7 @@
 #include <QString>
 
 #include "Device.h"
+//----------------------------------------------------------------------------
 
 namespace Ui {
 class LightInfo;

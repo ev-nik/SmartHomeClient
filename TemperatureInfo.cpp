@@ -1,6 +1,5 @@
 #include "TemperatureInfo.h"
 #include "ui_TemperatureInfo.h"
-//----------------------------------------------------------------------------
 
 #include <QFile>
 #include <QTextStream>
@@ -11,8 +10,6 @@ TemperatureInfo::TemperatureInfo(QWidget *parent) :
     ui(new Ui::TemperatureInfo)
 {
     ui->setupUi(this);
-
-//    isSave = false;
 
     m_Timer = new QTimer(this);
 
@@ -53,7 +50,7 @@ void TemperatureInfo::updateTemperature()
 
     QString qstrT = QString::number(t);
 
-    writeInFile(qstrT);
+    writeInFile(qstrT, CSV);
 }
 //----------------------------------------------------------------------------
 

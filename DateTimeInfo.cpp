@@ -6,10 +6,6 @@
 #include <QDateTime>
 #include <QDate>
 #include <QVBoxLayout>
-
-//----------------------------------------------------------------------------
-
-//#define FILE_PATH "E:/prog.txt"
 //----------------------------------------------------------------------------
 
 DateTimeInfo::DateTimeInfo(QWidget *parent) :
@@ -42,7 +38,7 @@ void DateTimeInfo::tick()
     ui->dateLabel->setText(QString("Дата: %1").arg(dateNow));
     ui->timeLabel->setText(QString("Время: %1").arg(timeNow));
 
-    writeInFile(dateNow + " " + timeNow);
+    writeInFile(dateNow + " " + timeNow, TXT);
 }
 //----------------------------------------------------------------------------
 
@@ -51,7 +47,7 @@ void DateTimeInfo::updateWeekDay()
     QString dayNow = QDate::currentDate().toString("dddd");
     dayNow[0] = dayNow[0].toUpper();
 
-    writeInFile(dayNow);
+    writeInFile(dayNow, CSV);
 
     ui->dayOfWeekLabel->setText(dayNow);
 }

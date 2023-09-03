@@ -1,11 +1,13 @@
 #ifndef TEMPERATUREINFO_H
 #define TEMPERATUREINFO_H
+//----------------------------------------------------------------------------
 
 #include <QWidget>
 #include <QTimer>
 #include <QTime>
 
 #include "Device.h"
+//----------------------------------------------------------------------------
 
 namespace Ui {
 class TemperatureInfo;

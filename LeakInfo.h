@@ -1,44 +1,39 @@
-#ifndef DATETIMEINFO_H
-#define DATETIMEINFO_H
+#ifndef LEAKINFO_H
+#define LEAKINFO_H
 //----------------------------------------------------------------------------
 
 #include <QWidget>
 #include <QTimer>
-#include <QLabel>
 #include <QTime>
-#include <QFile>
-#include <QString>
-#include <QTextStream>
 
 #include "Device.h"
 //----------------------------------------------------------------------------
 
 namespace Ui {
-class DateTimeInfo;
+class LeakInfo;
 }
 
-class DateTimeInfo : public Device
+class LeakInfo : public Device
 {
     Q_OBJECT
 
 public:
-    explicit DateTimeInfo(QWidget *parent = nullptr);
-    ~DateTimeInfo();
+    explicit LeakInfo(QWidget *parent = nullptr);
+    ~LeakInfo();
 
-    QString nameSensor();
+    virtual QString nameSensor();
 
 private:
-    Ui::DateTimeInfo *ui;
+    Ui::LeakInfo *ui;
 
     QTimer* m_Timer;
 
 private slots:
-    void tick();
+    void updateLeakInfo();
     void deleteClick();
-    void updateWeekDay();
 
 signals:
     void deleteMe();
 };
 
-#endif // DATETIMEINFO_H
+#endif // LEAKINFO_H

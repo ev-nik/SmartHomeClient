@@ -8,6 +8,12 @@
 #include <QTextStream>
 //----------------------------------------------------------------------------
 
+enum Formats
+{
+    TXT,
+    CSV
+};
+
 namespace Ui {
 class Device;
 }
@@ -21,7 +27,7 @@ public:
     ~Device();
 
 public:
-    void writeInFile(QString qs);
+    void writeInFile(QString qs, Formats f);
     void setFileAdress(QString addres);
     virtual QString nameSensor() = 0;
 
