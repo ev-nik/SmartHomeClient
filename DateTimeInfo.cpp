@@ -38,7 +38,7 @@ void DateTimeInfo::tick()
     ui->dateLabel->setText(QString("Дата: %1").arg(dateNow));
     ui->timeLabel->setText(QString("Время: %1").arg(timeNow));
 
-    writeInFile(dateNow + " " + timeNow, TXT);
+    writeInFile(dateNow + " " + timeNow, CSV);
 }
 //----------------------------------------------------------------------------
 

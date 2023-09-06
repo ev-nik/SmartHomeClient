@@ -40,6 +40,8 @@ void Widget::createDateTimeInfo()
 
     dateTimeInfo->setFileAdress(path);
 
+    ui->createDateTimeInfoButton->setEnabled(false);
+
     connect(dateTimeInfo, SIGNAL(deleteMe()), this, SLOT(deleteDevice()));
 
     QLayout* l = layout();
@@ -52,6 +54,8 @@ void Widget::createTemperatureInfo()
     TemperatureInfo* temperatureInfo = new TemperatureInfo(this);
 
     temperatureInfo->setFileAdress(path);
+
+    ui->createTemperatureButton->setVisible(false);
 
     connect(temperatureInfo, SIGNAL(deleteMe()), this, SLOT(deleteDevice()));
 
@@ -66,6 +70,8 @@ void Widget::createLightInfo()
 
     lightInfo->setFileAdress(path);
 
+    ui->createLightInfoButton->setVisible(false);
+
     connect(lightInfo, SIGNAL(deleteMe()), this, SLOT(deleteDevice()));
 
     QLayout* l = layout();
@@ -79,7 +85,11 @@ void Widget::createLeakInfo()
 
     leakInfo->setFileAdress(path);
 
+
+    ui->createLeakInfoButton->setVisible(false);
+
     connect(leakInfo, SIGNAL(deleteMe()), this, SLOT(deleteDevice()));
+
 
     QLayout* l = layout();
     l->addWidget(leakInfo);
@@ -90,6 +100,28 @@ void Widget::createLeakInfo()
 void Widget::deleteDevice()
 {
     QObject* device = sender();
+
+    DateTimeInfo   * dTInfo = qobject_cast<DateTimeInfo   *>(device);
+    TemperatureInfo* tInfo  = qobject_cast<TemperatureInfo*>(device);
+    LightInfo      * lInfo  = qobject_cast<LightInfo      *>(device);
+    LeakInfo       * leInfo = qobject_cast<LeakInfo       *>(device);
+
+    if( dTInfo != nullptr )
+    {
+        ui->createDateTimeInfoButton->setEnabled(true);
+    }
+    else if(tInfo != nullptr)
+    {
+        ui->createTemperatureButton->setVisible(true);
+    }
+    else if( lInfo != nullptr)
+    {
+        ui->createLightInfoButton->setVisible(true);
+    }
+    else if(leInfo != nullptr)
+    {
+        ui->createLeakInfoButton->setVisible(true);
+    }
 
     delete device;
 }
