@@ -18,7 +18,6 @@ DateTimeInfo::DateTimeInfo(QWidget *parent) :
 
     connect(m_Timer,          SIGNAL(timeout()),     this, SLOT(tick()));
     connect(ui->deleteButton, SIGNAL(clicked(bool)), this, SLOT(deleteClick()));
-    connect(m_Timer,          SIGNAL(timeout()),     this, SLOT(updateWeekDay()));
 
     m_Timer->start(1000);
 }
@@ -33,23 +32,16 @@ DateTimeInfo::~DateTimeInfo()
 void DateTimeInfo::tick()
 {
     QString dateNow = QDateTime::currentDateTime().toString("dd.MM.yyyy");
-    QString timeNow = QDateTime::currentDateTime().toString(" hh:mm:ss ");
+    QString timeNow = QDateTime::currentDateTime().toString("hh:mm:ss ");
+    QString dayNow  = QDateTime::currentDateTime().toString("dddd");
 
-    ui->dateLabel->setText(QString("Дата: %1").arg(dateNow));
-    ui->timeLabel->setText(QString("Время: %1").arg(timeNow));
-
-    writeInFile(dateNow + " " + timeNow, CSV);
-}
-//----------------------------------------------------------------------------
-
-void DateTimeInfo::updateWeekDay()
-{
-    QString dayNow = QDate::currentDate().toString("dddd");
     dayNow[0] = dayNow[0].toUpper();
 
-    writeInFile(dayNow, CSV);
-
+    ui->dateLabel     ->setText(QString("Дата: %1").arg(dateNow));
+    ui->timeLabel     ->setText(QString("Время: %1").arg(timeNow));
     ui->dayOfWeekLabel->setText(dayNow);
+
+    writeInFile(dateNow + " " + timeNow + ";" + dayNow, CSV);
 }
 //----------------------------------------------------------------------------
 

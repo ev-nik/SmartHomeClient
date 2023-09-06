@@ -35,7 +35,6 @@ private:
 private slots:
     void tick();
     void deleteClick();
-    void updateWeekDay();
 
 signals:
     void deleteMe();

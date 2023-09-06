@@ -55,7 +55,7 @@ void Widget::createTemperatureInfo()
 
     temperatureInfo->setFileAdress(path);
 
-    ui->createTemperatureButton->setVisible(false);
+    ui->createTemperatureButton->setEnabled(false);
 
     connect(temperatureInfo, SIGNAL(deleteMe()), this, SLOT(deleteDevice()));
 
@@ -70,7 +70,7 @@ void Widget::createLightInfo()
 
     lightInfo->setFileAdress(path);
 
-    ui->createLightInfoButton->setVisible(false);
+    ui->createLightInfoButton->setEnabled(false);
 
     connect(lightInfo, SIGNAL(deleteMe()), this, SLOT(deleteDevice()));
 
@@ -86,7 +86,7 @@ void Widget::createLeakInfo()
     leakInfo->setFileAdress(path);
 
 
-    ui->createLeakInfoButton->setVisible(false);
+    ui->createLeakInfoButton->setEnabled(false);
 
     connect(leakInfo, SIGNAL(deleteMe()), this, SLOT(deleteDevice()));
 
@@ -112,15 +112,15 @@ void Widget::deleteDevice()
     }
     else if(tInfo != nullptr)
     {
-        ui->createTemperatureButton->setVisible(true);
+        ui->createTemperatureButton->setEnabled(true);
     }
     else if( lInfo != nullptr)
     {
-        ui->createLightInfoButton->setVisible(true);
+        ui->createLightInfoButton->setEnabled(true);
     }
     else if(leInfo != nullptr)
     {
-        ui->createLeakInfoButton->setVisible(true);
+        ui->createLeakInfoButton->setEnabled(true);
     }
 
     delete device;
