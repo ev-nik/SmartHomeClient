@@ -36,8 +36,6 @@ int main(int argc, char *argv[])
         }
     }
 
-//    qWarning() << Q_FUNC_INFO <<
-
     if(path.isEmpty() == false)
     {
         w.setFileAdress(path);

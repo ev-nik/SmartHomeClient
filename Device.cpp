@@ -3,6 +3,8 @@
 
 #include <QDateTime>
 #include <QDebug>
+#include <string>
+#include <algorithm>
 //----------------------------------------------------------------------------
 
 Device::Device(QWidget *parent) :

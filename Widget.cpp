@@ -127,8 +127,13 @@ void Widget::deleteDevice()
 }
 //----------------------------------------------------------------------------
 
-void Widget::setFileAdress(QString addres)
+void Widget::setFileAdress(QString filePath)
 {
-    path = addres;
+    while(path[path.size() - 1] == '/')
+    {
+        path.chop(1);
+    }
+
+    path = filePath;
 }
 
