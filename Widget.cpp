@@ -40,6 +40,11 @@ void Widget::createDateTimeInfo()
 
     dateTimeInfo->setFileAdress(path);
 
+    if(del)
+    {
+        QFile::remove(path + "/" + dateTimeInfo->nameSensor() + ".csv");
+    }
+
     ui->createDateTimeInfoButton->setEnabled(false);
 
     connect(dateTimeInfo, SIGNAL(deleteMe()), this, SLOT(deleteDevice()));
@@ -54,6 +59,11 @@ void Widget::createTemperatureInfo()
     TemperatureInfo* temperatureInfo = new TemperatureInfo(this);
 
     temperatureInfo->setFileAdress(path);
+
+    if(del)
+    {
+        QFile::remove(path + "/" + temperatureInfo->nameSensor() + ".csv");
+    }
 
     ui->createTemperatureButton->setEnabled(false);
 
@@ -70,6 +80,11 @@ void Widget::createLightInfo()
 
     lightInfo->setFileAdress(path);
 
+    if(del)
+    {
+        QFile::remove(path + "/" + lightInfo->nameSensor() + ".csv");
+    }
+
     ui->createLightInfoButton->setEnabled(false);
 
     connect(lightInfo, SIGNAL(deleteMe()), this, SLOT(deleteDevice()));
@@ -85,11 +100,14 @@ void Widget::createLeakInfo()
 
     leakInfo->setFileAdress(path);
 
+    if(del)
+    {
+        QFile::remove(path + "/" + leakInfo->nameSensor() + ".csv");
+    }
 
     ui->createLeakInfoButton->setEnabled(false);
 
     connect(leakInfo, SIGNAL(deleteMe()), this, SLOT(deleteDevice()));
-
 
     QLayout* l = layout();
     l->addWidget(leakInfo);
@@ -129,11 +147,16 @@ void Widget::deleteDevice()
 
 void Widget::setFileAdress(QString filePath)
 {
-    while(path[path.size() - 1] == '/')
+    while(filePath[filePath.size() - 1] == '/')
     {
-        path.chop(1);
+        filePath.chop(1);
     }
 
     path = filePath;
 }
+//----------------------------------------------------------------------------
 
+void Widget::setDeleteFile(bool x)
+{
+    del = x;
+}

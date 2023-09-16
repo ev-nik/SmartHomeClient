@@ -27,7 +27,6 @@ DateTimeInfo::~DateTimeInfo()
 {
     delete ui;
 }
-
 //----------------------------------------------------------------------------
 void DateTimeInfo::tick()
 {

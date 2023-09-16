@@ -3,12 +3,16 @@
 #include <QApplication>
 #include <QFile>
 #include <QDebug>
+#include <QDir>
 //----------------------------------------------------------------------------
 
 //     -p=E:/File
 // --path=E:/File
 //     -p=E:/prog.txt
 // --path=E:/prog.txt
+
+//     -p=E:/File -d
+// --path=E:/File --delete
 //----------------------------------------------------------------------------
 
 int main(int argc, char *argv[])
@@ -25,14 +29,33 @@ int main(int argc, char *argv[])
 
         QStringList arg_split = arg.split("=");
 
-        QString key   = arg_split[0];
-        QString value = arg_split[1];
-
-        key = key.toLower(); // Перезаписываем в нижний регистр
-
-        if(key == "-p" || key == "--path")
+        if( arg_split.count() == 2)
         {
-            path = value;
+            QString key   = arg_split[0];
+            QString value = arg_split[1];
+
+            key = key.toLower(); // Перезаписываем в нижний регистр
+
+            if(key == "-p" || key == "--path")
+            {
+                path = value;
+
+                if(QDir(path).exists() == false)
+                {
+                    qWarning() << Q_FUNC_INFO << path << "Folder not found";
+                }
+            }
+        }
+
+        if(arg_split.count() == 1)
+        {
+            QString value = arg_split[0];
+            value = value.toLower();
+
+            if(value == "-d" || value == "--delete")
+            {
+                w.setDeleteFile(true);
+            }
         }
     }
 

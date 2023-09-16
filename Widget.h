@@ -5,6 +5,8 @@
 #include <DateTimeInfo.h>
 #include <TemperatureInfo.h>
 #include <LightInfo.h>
+#include <QDebug>
+
 #include "Device.h"
 #include "LeakInfo.h"
 //----------------------------------------------------------------------------
@@ -22,18 +24,19 @@ public:
     ~Widget();
 
     void setFileAdress(QString addres);
+    void setDeleteFile(bool x);
 
 private:
     Ui::Widget *ui;
 
     QString path;
+    bool del;
 
 private slots:
     void createDateTimeInfo();
     void createTemperatureInfo();
     void createLightInfo();
     void createLeakInfo();
-
     void deleteDevice();
 };
 #endif // WIDGET_H
