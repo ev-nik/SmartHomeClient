@@ -12,6 +12,9 @@ Device::Device(QWidget *parent) :
     ui(new Ui::Device)
 {
     ui->setupUi(this);
+
+//   setFileAdress(path);
+
 }
 //----------------------------------------------------------------------------
 

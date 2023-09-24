@@ -3,13 +3,24 @@
 
 #include <QFile>
 #include <QTextStream>
+#include <QDebug>
 //----------------------------------------------------------------------------
 
-TemperatureInfo::TemperatureInfo(QWidget *parent) :
+TemperatureInfo::TemperatureInfo(QString path, QWidget *parent) :
     Device(parent),
     ui(new Ui::TemperatureInfo)
 {
     ui->setupUi(this);
+
+    QString pathTemp = path + "/" + nameSensor() + ".csv";
+
+    if(QFile::exists(pathTemp))
+    {
+        if(QFile::remove(pathTemp) == false)
+        {
+            qWarning() << Q_FUNC_INFO << pathTemp << "File is not delete";
+        }
+    }
 
     m_Timer = new QTimer(this);
 

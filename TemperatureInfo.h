@@ -18,7 +18,7 @@ class TemperatureInfo : public Device
     Q_OBJECT
 
 public:
-    explicit TemperatureInfo(QWidget *parent = nullptr);
+    explicit TemperatureInfo(QString path, QWidget *parent = nullptr);
     ~TemperatureInfo();
 
     QString nameSensor();

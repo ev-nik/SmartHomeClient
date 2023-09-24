@@ -6,13 +6,25 @@
 #include <QDateTime>
 #include <QDate>
 #include <QVBoxLayout>
+#include <QFile>
+#include <QDebug>
 //----------------------------------------------------------------------------
 
-DateTimeInfo::DateTimeInfo(QWidget *parent) :
+DateTimeInfo::DateTimeInfo(QString path, QWidget *parent) :
     Device(parent),
     ui(new Ui::DateTimeInfo)
 {
     ui->setupUi(this);
+
+    QString pathDate = path + "/" + nameSensor() + ".csv";
+
+    if(QFile::exists(pathDate))
+    {
+        if(QFile::remove(pathDate) == false)
+        {
+            qWarning() << Q_FUNC_INFO << pathDate << "File is not delete";
+        }
+    }
 
     m_Timer = new QTimer(this);
 

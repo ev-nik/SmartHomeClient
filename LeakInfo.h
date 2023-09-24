@@ -18,7 +18,7 @@ class LeakInfo : public Device
     Q_OBJECT
 
 public:
-    explicit LeakInfo(QWidget *parent = nullptr);
+    explicit LeakInfo(QString path, QWidget *parent = nullptr);
     ~LeakInfo();
 
     virtual QString nameSensor();

@@ -19,7 +19,7 @@ class LightInfo : public Device
     Q_OBJECT
 
 public:
-    explicit LightInfo(QWidget *parent = nullptr);
+    explicit LightInfo(QString path, QWidget *parent = nullptr);
     ~LightInfo();
 
     QString nameSensor();

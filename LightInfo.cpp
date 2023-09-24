@@ -3,13 +3,24 @@
 
 #include <QFile>
 #include <QTextStream>
+#include <QDebug>
 //----------------------------------------------------------------------------
 
-LightInfo::LightInfo(QWidget *parent) :
+LightInfo::LightInfo(QString path, QWidget *parent) :
     Device(parent),
     ui(new Ui::LightInfo)
 {
     ui->setupUi(this);
+
+    QString pathLight = path + "/" + nameSensor() + ".csv";
+
+    if(QFile::exists(pathLight))
+    {
+        if(QFile::remove(pathLight) == false)
+        {
+            qWarning() << Q_FUNC_INFO << pathLight << "File is not delete";
+        }
+    }
 
     m_Timer = new QTimer(this);
 

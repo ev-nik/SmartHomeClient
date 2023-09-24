@@ -1,12 +1,25 @@
 #include "LeakInfo.h"
 #include "ui_LeakInfo.h"
+
+#include <QFile>
+#include <QDebug>
 //----------------------------------------------------------------------------
 
-LeakInfo::LeakInfo(QWidget *parent) :
+LeakInfo::LeakInfo(QString path, QWidget *parent) :
     Device(parent),
     ui(new Ui::LeakInfo)
 {
     ui->setupUi(this);
+
+    QString pathLeak = path + "/" + nameSensor() + ".csv";
+
+    if(QFile::exists(pathLeak))
+    {
+        if(QFile::remove(pathLeak) == false)
+        {
+            qWarning() << Q_FUNC_INFO << pathLeak << "File is not delete";
+        }
+    }
 
     m_Timer = new QTimer(this);
 

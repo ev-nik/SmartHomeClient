@@ -36,14 +36,9 @@ Widget::~Widget()
 
 void Widget::createDateTimeInfo()
 {
-    DateTimeInfo* dateTimeInfo = new DateTimeInfo(this);
+    DateTimeInfo* dateTimeInfo = new DateTimeInfo(path,this);
 
     dateTimeInfo->setFileAdress(path);
-
-    if(del)
-    {
-        QFile::remove(path + "/" + dateTimeInfo->nameSensor() + ".csv");
-    }
 
     ui->createDateTimeInfoButton->setEnabled(false);
 
@@ -56,14 +51,14 @@ void Widget::createDateTimeInfo()
 
 void Widget::createTemperatureInfo()
 {
-    TemperatureInfo* temperatureInfo = new TemperatureInfo(this);
+    TemperatureInfo* temperatureInfo = new TemperatureInfo(path, this);
 
     temperatureInfo->setFileAdress(path);
 
-    if(del)
-    {
-        QFile::remove(path + "/" + temperatureInfo->nameSensor() + ".csv");
-    }
+//    if(del)
+//    {
+//        QFile::remove(path + "/" + temperatureInfo->nameSensor() + ".csv");
+//    }
 
     ui->createTemperatureButton->setEnabled(false);
 
@@ -76,14 +71,14 @@ void Widget::createTemperatureInfo()
 
 void Widget::createLightInfo()
 {
-    LightInfo* lightInfo = new LightInfo(this);
+    LightInfo* lightInfo = new LightInfo(path, this);
 
     lightInfo->setFileAdress(path);
 
-    if(del)
-    {
-        QFile::remove(path + "/" + lightInfo->nameSensor() + ".csv");
-    }
+//    if(del)
+//    {
+//        QFile::remove(path + "/" + lightInfo->nameSensor() + ".csv");
+//    }
 
     ui->createLightInfoButton->setEnabled(false);
 
@@ -96,14 +91,14 @@ void Widget::createLightInfo()
 
 void Widget::createLeakInfo()
 {
-    LeakInfo* leakInfo = new LeakInfo(this);
+    LeakInfo* leakInfo = new LeakInfo(path, this);
 
     leakInfo->setFileAdress(path);
 
-    if(del)
-    {
-        QFile::remove(path + "/" + leakInfo->nameSensor() + ".csv");
-    }
+//    if(del)
+//    {
+//        QFile::remove(path + "/" + leakInfo->nameSensor() + ".csv");
+//    }
 
     ui->createLeakInfoButton->setEnabled(false);
 

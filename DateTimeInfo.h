@@ -22,7 +22,8 @@ class DateTimeInfo : public Device
     Q_OBJECT
 
 public:
-    explicit DateTimeInfo(QWidget *parent = nullptr);
+    explicit DateTimeInfo(QString path, QWidget *parent = nullptr);
+
     ~DateTimeInfo();
 
     QString nameSensor();

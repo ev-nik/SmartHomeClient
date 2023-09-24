@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 9.0.0, 2023-09-15T22:25:08. -->
+<!-- Written by QtCreator 9.0.0, 2023-09-24T11:51:31. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -241,7 +241,7 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:E:/projects2/SmartHomeClient/SmartHomeClient.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">E:/projects2/SmartHomeClient/SmartHomeClient.pro</value>
-    <value type="QString" key="RunConfiguration.Arguments">-p=E:/File -d</value>
+    <value type="QString" key="RunConfiguration.Arguments">-p=E:/File</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
